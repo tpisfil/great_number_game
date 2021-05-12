@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <style>
+        .container{
+            text-align: center;
+            margin-top: 25px;
+        }
+        #h1title{
+            margin-bottom: 50px;
+        }
+        h4{
+            margin-bottom: 15px;
+        }
+        .button{
+            margin-top: 15px;
+            box-shadow: 3px 3px 5px;
+        }
+        #answerBox{
+            margin: 25px auto;
+            height: 50px;
+            width: 300px;
+            background-color: {{session['color']}};
+        }
+        h1{
+            margin: 0%;
+        }
+    </style>
+    <title>The Great Number Game</title>
+</head>
+<body>
+    <div class="container">
+        <h1 id="h1title">Welcome to The Great Number Game</h1>
+        <h3>I am thinking of a number between 1 and 100</h3>
+        <h4>Take a guess!</h4>
+        <div id="answerBox">
+            <h1>{{session['answer']}}</h1>
+        </div>
+        <form action="/guess" method="POST">
+            <input type="text" name="userGuess">
+            <div>
+                <input type="submit" class="button">
+            </div>
+        </form>
+        <br>
+        <a href="/destroy_session">
+            <button class="button">RESET</button>
+        </a>
+    </div>
+</body>
+</html>
